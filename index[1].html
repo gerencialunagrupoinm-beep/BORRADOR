@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarjeta Digital — LUNA Grupo Inmobiliario</title>
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121a2b;
+      --muted:#9fb0c3;
+      --ring:rgba(255,255,255,.12);
+      --accent:#0ea5e9;
+      --accent2:#8b5cf6;
+      --white:#ffffff;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;
+    }
+    html,body{margin:0;height:100%;}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--white);
+      background: radial-gradient(900px 600px at 100% -10%, rgba(14,165,233,.25), transparent),
+                  radial-gradient(900px 600px at -10% 110%, rgba(139,92,246,.25), transparent),
+                  var(--bg);
+      min-height:100%;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .wrap{width:min(720px,92vw);margin:40px auto;position:relative}
+    .orb{position:absolute;border-radius:999px;filter:blur(64px);opacity:.8;pointer-events:none}
+    .orb.a{width:420px;height:420px;right:-120px;top:-140px;background:radial-gradient(closest-side,var(--accent),transparent);animation:float1 6s ease-in-out infinite alternate}
+    .orb.b{width:420px;height:420px;left:-120px;bottom:-160px;background:radial-gradient(closest-side,var(--accent2),transparent);animation:float2 8s ease-in-out infinite alternate}
+    @keyframes float1{to{transform:translateY(18px) scale(1.05);opacity:.95}}
+    @keyframes float2{to{transform:translateY(-18px) scale(1.05);opacity:.9}}
+    .card{position:relative;background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      border:1px solid var(--ring); backdrop-filter: blur(10px);
+      border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
+      animation: rise .6s ease-out both;}
+    @keyframes rise{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:translateY(0)}}
+    .row{display:flex;gap:10px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:18px;object-fit:cover;border:2px solid rgba(255,255,255,.18)}
+    .brand{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .actions{display:flex;gap:10px;align-items:center}
+    .logo{width:160px;height:auto;object-fit:contain}
+    .company{font-weight:600}
+    .muted{color:var(--muted);font-size:12px}
+    .name{font-size:26px;font-weight:800;margin:0}
+    .role{margin:6px 0 0;font-size:13px;color:#cfe0f2}
+    .grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:10px;margin-top:18px}
+    .btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;border:1px solid var(--ring);
+      background:rgba(255,255,255,.06); text-decoration:none; color:var(--white);
+      transition:.25s transform, .25s background;}
+    .btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.12)}
+    .primary{background:var(--white);color:#0b1220}
+    .chip{background:rgba(255,255,255,.06)}
+    .card2{margin-top:14px;padding:18px;border:1px solid var(--ring);border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.03))}
+    ul.info{list-style:none;padding:0;margin:12px 0 0}
+    ul.info li{margin:6px 0;font-size:14px;color:#deecff}
+    ul.info span{color:var(--muted)}
+    .footer{margin:14px 0 0;text-align:center;color:var(--muted);font-size:12px}
+    @media (max-width:520px){ .grid{grid-template-columns:1fr} .logo{width:120px} }
+  
+  /* —— Iconos de marca —— */
+  .btn.brand-ig{ border-color: transparent; }
+  .btn.brand-ig:hover{ box-shadow:0 10px 40px rgba(221,42,123,.22) }
+  .btn.brand-fb{ border-color: #1877F244; }
+  .btn.brand-fb:hover{ box-shadow:0 10px 40px rgba(24,119,242,.22) }
+  .btn.brand-tk{ border-color: #00F2EA44; }
+  .btn.brand-tk:hover{ box-shadow:0 10px 40px rgba(255,0,79,.22) }
+
+
+  /* —— Iconos de marca (extras) —— */
+  .btn.brand-ig{ border-color: transparent; }
+  .btn.brand-ig:hover{ box-shadow:0 10px 40px rgba(221,42,123,.22) }
+  .btn.brand-fb{ border-color: #1877F244; }
+  .btn.brand-fb:hover{ box-shadow:0 10px 40px rgba(24,119,242,.22) }
+  .btn.brand-tk{ border-color: #00F2EA44; }
+  .btn.brand-tk:hover{ box-shadow:0 10px 40px rgba(255,0,79,.22) }
+  .btn.brand-wa{ border-color:#25D36644 }
+  .btn.brand-wa:hover{ box-shadow:0 10px 40px rgba(37,211,102,.22) }
+  .btn.brand-mail{ border-color:#5D2DF644 }
+  .btn.brand-mail:hover{ box-shadow:0 10px 40px rgba(93,45,246,.22) }
+  .btn.brand-maps{ border-color:#4285F244 }
+  .btn.brand-maps:hover{ box-shadow:0 10px 40px rgba(66,133,244,.22) }
+  .btn.brand-call{ border-color:#16c7a244 }
+  .btn.brand-call:hover{ box-shadow:0 10px 40px rgba(22,199,162,.22) }
+  .btn.brand-web{ border-color:#0ea5e944 }
+  .btn.brand-web:hover{ box-shadow:0 10px 40px rgba(14,165,233,.22) }
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="orb a"></div>
+    <div class="orb b"></div>
+    <div class="brand">
+      <div class="row">
+        <img class="logo" src="logo_grupoluna_azul@4x.png" alt="logo LUNA">
+        <div>
+          <div class="company">LUNA Grupo Inmobiliario</div>
+          <div class="muted">Tarjeta Digital</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn chip" href="#" id="shareBtn" title="Compartir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>
+          <span>Compartir</span>
+        </a>
+        <a class="btn chip" id="avatarPhoto" href="#">Foto</a>
+        <a class="btn chip" id="avatarLogo" href="#">Logo</a>
+      </div>
+    </div>
+    <section class="card">
+      <div class="row">
+        <img class="avatar" src="Imagen1.jpg" alt="Orlando Alberto Fernandez Falconi">
+        <div>
+          <h1 class="name">Orlando Alberto Fernandez Falconi</h1>
+          <p class="role">Gerente General</p>
+        </div>
+      </div>
+      <div class="grid">
+        <a class="btn" href="tel:5554961764">Llamar</a>
+        <a class="btn" href="https://wa.me/525554961764" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="mailto:GerenciaLUNAGrupoInm@gmail.com">Email</a>
+        <a class="btn" href="https://lunagrupoinm.com/" target="_blank" rel="noopener">Sitio Web</a>
+        <a class="btn" id="mapsBtn" href="#" target="_blank" rel="noopener">Ubicación</a>
+<a class="btn brand-ig" id="btnIG" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="igGrad" x1="0" y="0" x2="1" y2="1">
+        <stop offset="0%"  stop-color="#f58529"/>
+        <stop offset="40%" stop-color="#dd2a7b"/>
+        <stop offset="70%" stop-color="#8134af"/>
+        <stop offset="100%" stop-color="#515bd4"/>
+      </linearGradient>
+    </defs>
+    <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#igGrad)"></rect>
+    <circle cx="12" cy="12" r="5" fill="#fff"></circle>
+    <circle cx="18" cy="6" r="1.3" fill="#fff"></circle>
+  </svg>
+  <span>Instagram</span>
+</a>
+<a class="btn brand-fb" id="btnFacebook" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+    <circle cx="12" cy="12" r="10" fill="#1877F2"></circle>
+    <path d="M13.5 9H16l.5-3h-3V4.5c0-.9.3-1.5 1.7-1.5H16V0h-2.3C11.2 0 10 1.8 10 4.2V6H8v3h2v9h3V9z" fill="#fff"></path>
+  </svg>
+  <span>Facebook</span>
+</a>
+<a class="btn brand-tk" id="btnTikTok" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="tkGrad" x1="0" y="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#00F2EA"/>
+        <stop offset="100%" stop-color="#FF004F"/>
+      </linearGradient>
+    </defs>
+    <path d="M16 4c1.6 2.3 3.6 3.4 6 3.5v3.2c-2.5-.1-4.6-.9-6-2.2V17a6 6 0 1 1-6-6" fill="url(#tkGrad)"></path>
+  </svg>
+  <span>TikTok</span>
+</a>
+<a class="btn brand-call" id="btnCall" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" fill="#16c7a2"></circle>
+    <path d="M7 9c.5 2 3 5 5 5l2-2c.4-.4 1-.4 1.4 0l2 2c.4.4.4 1 0 1.4-1.2 1.2-2.7 1.8-4.4 1.8-3.9 0-7-3.1-7-7 0-1.7.6-3.2 1.8-4.4C8 5 8.6 5 9 5.4l2 2c.4.4.4 1 0 1.4L9 11" fill="#fff"></path>
+  </svg>
+  <span>Llamar</span>
+</a>
+<a class="btn brand-wa" id="btnWhats" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" fill="#25D366"></circle>
+    <path d="M16.6 13.7c-.2.5-1.3 1.2-1.8 1.3-.5.1-1 .2-1.6 0-.4-.1-.9-.3-1.5-.6-.5-.3-1.1-.8-1.8-1.5-.7-.7-1.2-1.4-1.5-1.8-.3-.6-.5-1.1-.6-1.5-.2-.6-.1-1.1 0-1.6.1-.5.8-1.6 1.3-1.8.3-.2.7-.1.9.2l1 1.7c.2.3.2.6-.1.9l-.5.6c-.2.3-.2.6 0 .9.3.5.8 1.2 1.4 1.8.6.6 1.3 1.1 1.8 1.4.3.2.6.2.9 0l.6-.5c.3-.3.6-.3.9-.1l1.7 1c.3.2.3.6.2.9z" fill="#fff"></path>
+  </svg>
+  <span>WhatsApp</span>
+</a>
+<a class="btn brand-mail" id="btnMail" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" fill="#5D2DF6"></circle>
+    <path d="M6 8h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zm0 0l6 4 6-4" fill="#fff"></path>
+  </svg>
+  <span>Email</span>
+</a>
+<a class="btn brand-web" id="btnSite" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" fill="#0EA5E9"></circle>
+    <path d="M4 12h16M12 4a16 16 0 0 1 0 16M12 4a16 16 0 0 0 0 16" stroke="#fff" stroke-width="2" fill="none"></path>
+  </svg>
+  <span>Sitio Web</span>
+</a>
+<a class="btn brand-maps" id="btnMaps" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <defs>
+      <linearGradient id="gmGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#34A853"></stop>
+        <stop offset="50%" stop-color="#FBBC05"></stop>
+        <stop offset="100%" stop-color="#4285F4"></stop>
+      </linearGradient>
+    </defs>
+    <path d="M12 21s7-6.5 7-11.2C19 6 15.9 3 12 3S5 6 5 9.8C5 14.5 12 21 12 21z" fill="url(#gmGrad)"></path>
+    <circle cx="12" cy="10" r="3" fill="#EA4335"></circle>
+  </svg>
+  <span>Ubicación</span>
+</a>
+</div>
+      <div class="row" style="gap:10px;margin-top:16px;flex-wrap:wrap">
+        <a class="btn primary" id="saveVcf">Guardar contacto</a>
+        <a class="btn chip" id="hostBtn" href="https://lunagrupoinm.com/" target="_blank" rel="noopener">lunagrupoinm.com</a>
+      </div>
+    </section>
+    <section class="card2">
+      <div class="muted">Contacto</div>
+      <ul class="info">
+        <li><span>Tel:</span> 5554961764</li>
+        <li><span>Email:</span> GerenciaLUNAGrupoInm@gmail.com</li>
+        <li><span>Ubicación:</span> <a href="https://maps.app.goo.gl/M5bFtkvP7BvrHLMG9" target="_blank" rel="noopener" style="color:#9fd1ff;text-decoration:underline">Ver en Google Maps</a></li>
+        <li><span>Empresa:</span> LUNA Grupo Inmobiliario</li>
+        <li><span>Cargo:</span> Gerente General</li>
+      </ul>
+    </section>
+    <div class="footer">© <span id="year"></span> LUNA Grupo Inmobiliario. Todos los derechos reservados.</div>
+  </div>
+  <script>
+    const profile = {
+      nombre: 'Orlando Alberto Fernandez Falconi',
+      empresa: 'LUNA Grupo Inmobiliario',
+      cargo: 'Gerente General',
+      telefono: '5554961764',
+      whatsapp: '525554961764',
+      email: 'GerenciaLUNAGrupoInm@gmail.com',
+      sitio: 'https://lunagrupoinm.com/',
+      mapsUrl: 'https://maps.app.goo.gl/M5bFtkvP7BvrHLMG9'
+    };
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const params = new URLSearchParams(location.search);
+    function normalizeMode(v){
+      if(!v) return null;
+      v = v.toLowerCase();
+      if(v==='logo') return 'logo';
+      if(v==='foto' || v==='photo') return 'photo';
+      return null;
+    }
+
+    let currentMode = 'photo';
+
+    // Compartir con el modo actual en la URL
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', async (e)=>{
+      e.preventDefault();
+      const u = new URL(location.href);
+      u.searchParams.set('avatar', currentMode);
+      const url = u.toString();
+      const data = { title: profile.nombre, text: `${profile.nombre} — ${profile.cargo}`, url };
+      try{ if(navigator.share){ await navigator.share(data); } else { await navigator.clipboard.writeText(url); shareBtn.querySelector('span').textContent = 'Copiado'; setTimeout(()=>shareBtn.querySelector('span').textContent='Compartir',1400);} }catch(err){}
+    });
+
+    // Maps
+    const mapsBtn = document.getElementById('mapsBtn');
+    mapsBtn.href = profile.mapsUrl;
+
+    // vCard: agrega el modo de avatar en NOTE
+    document.getElementById('saveVcf').addEventListener('click', ()=>{
+      const vcf = `BEGIN:VCARD\nVERSION:3.0\nFN:${profile.nombre}\nORG:${profile.empresa}\nTITLE:${profile.cargo}\nTEL;TYPE=CELL:${profile.telefono}\nEMAIL;TYPE=INTERNET:${profile.email}\nURL:${profile.sitio}\nNOTE:Avatar=${currentMode}; Ubicación (Maps): ${profile.mapsUrl}\nEND:VCARD`;
+      const blob = new Blob([vcf], {type:'text/vcard;charset=utf-8'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = profile.nombre.replace(/\s+/g,'_') + '.vcf';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+    });
+
+    // Toggle de avatar + autodetección (si no hay foto: modo logo)
+    const avatarEl = document.querySelector('.avatar');
+    const photoBtn = document.getElementById('avatarPhoto');
+    const logoBtn  = document.getElementById('avatarLogo');
+
+    function setAvatar(mode){
+      const isLogo = mode === 'logo';
+      avatarEl.src = isLogo ? 'iso_grupoluna_azul@4x.png' : 'Imagen1.jpg';
+      if(isLogo){
+        avatarEl.style.borderRadius = '999px';
+        avatarEl.style.objectFit = 'contain';
+        avatarEl.style.background = '#ffffff';
+        avatarEl.style.padding = '12px';
+      }else{
+        avatarEl.style.borderRadius = '18px';
+        avatarEl.style.objectFit = 'cover';
+        avatarEl.style.background = 'transparent';
+        avatarEl.style.padding = '0';
+      }
+      photoBtn.classList.toggle('primary', !isLogo);
+      logoBtn.classList.toggle('primary', isLogo);
+      currentMode = mode;
+      localStorage.setItem('avatarMode', mode);
+    }
+
+    async function photoExists(){
+      return new Promise((resolve)=>{
+        const img = new Image();
+        img.onload = ()=> resolve(true);
+        img.onerror = ()=> resolve(false);
+        img.src = 'Imagen1.jpg?' + Date.now();
+      });
+    }
+
+    if(photoBtn && logoBtn){
+      photoBtn.addEventListener('click', (e)=>{ e.preventDefault(); setAvatar('photo'); });
+      logoBtn.addEventListener('click',  (e)=>{ e.preventDefault(); setAvatar('logo');  });
+
+      (async ()=>{
+        const paramMode = normalizeMode(params.get('avatar'));
+        const stored    = normalizeMode(localStorage.getItem('avatarMode'));
+        if(paramMode){ setAvatar(paramMode); return; }
+        if(stored){ setAvatar(stored); return; }
+        // autodetecta foto; si no existe, usa logo
+        const ok = await photoExists();
+        setAvatar(ok ? 'photo' : 'logo');
+      })();
+    }
+  </script>
+</body>
+</html>
